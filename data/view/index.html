@@ -1,0 +1,32 @@
+{% extends "document.html" %}
+
+{% block body %}
+<div class="container container-first height-medium">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="header-1">{{month}} {{year}}</h1>
+            <table class="table">
+            {% for row in matrix %}
+                {% if loop.index0 === 0 %}
+                    <tr>
+                    {% for col in row %}
+                        <th>{{col}}</th>
+                    {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                    {% for col in row %}
+                        <td>{{col|formatDate('D')}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Farmcal</title>
+
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" href="{{app.url}}/favicon.png" />
+    <link rel="stylesheet" href="{{app.url}}/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{app.url}}/css/style.css" />
+    <script>
+    </script>
+</head>
+<body class="{{bodyClass}}">
+
+{% block body %}{% endblock %}
+<footer class="footer d-print-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div></div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block scripts %}
+<script src="{{app.url}}/js/jquery-3.3.1.min.js"></script>
+<script src="{{app.url}}/js/popper.min.js"></script>
+<script src="{{app.url}}/js/bootstrap.min.js"></script>
+<script src="{{app.url}}/js/lodash.min.js"></script>
+<script src="{{app.url}}/js/moment.min.js"></script>
+<script src="{{app.url}}/js/axios.min.js"></script>
+<script src="{{app.url}}/js/vue.js"></script>
+<script src="{{app.url}}/js/script.js"></script>
+{% endblock %}
+</body>
+</html>

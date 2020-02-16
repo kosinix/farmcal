@@ -1,0 +1,37 @@
+{
+  "name": "farmcal",
+  "version": "1.0.0",
+  "description": "Farm calendar",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kosinix/farmcal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kosinix/farmcal/issues"
+  },
+  "homepage": "https://github.com/kosinix/farmcal#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-sqlite3": "^0.9.11",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "kalendaryo": "github:kosinix/kalendaryo",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "nunjucks": "^3.2.0",
+    "pigura": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
