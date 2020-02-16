@@ -4,29 +4,46 @@
 <div class="container container-first height-medium">
     <div class="row">
         <div class="col-12">
-            <h1 class="header-1">{{month}} {{year}}</h1>
-            <table class="table">
-            {% for row in matrix %}
-                {% if loop.index0 === 0 %}
-                    <tr>
-                    {% for col in row %}
-                        <th>{{col}}</th>
-                    {% endfor %}
+            <div id="calendar" v-cloak>
+                <h1 class="header-1">${month} ${year}</h1>
+                <table class="table">
+                    <tr v-for="(row, key) in matrix">
+                        <td v-for="col in row">
+                            <span v-if="isDate(col)">${formatDate(col, 'D')}</span>
+                            <span v-else>${col}</span>
+                        </td>
                     </tr>
-                {% else %}
-                    <tr>
-                    {% for col in row %}
-                        <td>{{col|formatDate('D')}}</td>
-                    {% endfor %}
-                    </tr>
-                {% endif %}
-            {% endfor %}
-
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
+<script>
+var calendar = new Vue({
+    el: '#calendar',
+    delimiters: ["${", "}"],
+    components: {
+    },
+    data: { 
+        matrix: getMatrix(moment(), 0),
+        month: "{{month}}",
+        year: {{year}},
+        momentNow: moment(),
+    },
+    methods: {
+        isDate: function(date){
+            return moment(date).isValid()
+        },
+        formatDate: function(date, format){
+            return moment(date).format(format)
+        },
+        getMatrix: function(momentNow, weekStart) {
+            return getMatrix(momentNow, weekStart)
+        }
+    }
+})
+</script>
 {% endblock %}
